@@ -24,6 +24,10 @@ func (manager *Manager) Add(dependency interface{}) {
 	manager.dependencies[reflect.TypeOf(dependency)] = reflect.ValueOf(dependency)
 }
 
+func (manager *Manager) AddModel(model interface{}) {
+	manager.dependencies[reflect.TypeOf(model)] = reflect.ValueOf(model)
+}
+
 func (manager Manager) Get(reflectType reflect.Type) interface{} {
 	return manager.dependencies[reflectType]
 }
